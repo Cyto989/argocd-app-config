@@ -6,13 +6,24 @@ metadata:
 spec:
   project: default
 
-  source:
-    repoURL: https://github.com/Cyto989/argocd-app-config.git
-    targetRevision: MAIN
+  # source:
+  #   repoURL: https://github.com/Cyto989/argocd-app-config.git
+  #   targetRevision: MAIN
+  #   path: dev
+  # destination: 
+  #   server: https://kubernetes.default.svc
+  #   namespace: myapp
+  sources:
+  - repoURL: https://github.com/Cyto989/argocd-app-config.git
     path: dev
-  destination: 
+    targetRevision: HEAD
+  - repoURL: https://github.com/Cyto989/argocd-app-config.git
+    path: stage
+    targetRevision: HEAD
+  destination:
     server: https://kubernetes.default.svc
     namespace: myapp
+
 
   syncPolicy:
     syncOptions:
