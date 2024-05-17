@@ -13,9 +13,9 @@ spec:
           - name: stage
             branch: stage
             namespace: stage
-          - name: prod
+          - name: main
             branch: main
-            namespace: prod
+            namespace: main
   template:
     metadata:
       name: guestbook-{{name}}
@@ -24,7 +24,7 @@ spec:
       source:
         repoURL: https://github.com/Cyto989/argocd-app-config.git
         targetRevision: '{{branch}}'
-        path: '.'
+        path: '{{name}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
