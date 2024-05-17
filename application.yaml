@@ -24,7 +24,7 @@ spec:
       source:
         repoURL: https://github.com/Cyto989/argocd-app-config.git
         targetRevision: '{{branch}}'
-        path: '{{name}}'
+        path: '.'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
