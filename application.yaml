@@ -13,9 +13,9 @@ spec:
           - name: stage
             branch: stage
             namespace: stage
-          - name: main
+          - name: prod
             branch: main
-            namespace: main
+            namespace: prod
   template:
     metadata:
       name: guestbook-{{name}}
@@ -24,7 +24,7 @@ spec:
       source:
         repoURL: https://github.com/Cyto989/argocd-app-config.git
         targetRevision: '{{branch}}'
-        path: '{{name}}'
+        path: 'app'  # Use 'app' directory for all branches
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
@@ -33,4 +33,4 @@ spec:
           prune: true
           selfHeal: true
         syncOptions:
-        - CreateNamespace=true
+          - CreateNamespace=true
