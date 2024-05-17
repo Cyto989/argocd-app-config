@@ -6,7 +6,11 @@ spec:
   selector:
     matchLabels:
       app: myapp
+<<<<<<< HEAD:app/deployment.yaml
   replicas: 8
+=======
+  replicas: 4
+>>>>>>> bd91ef1802abf47a9e384d9e75ae282a087cfa85:dev/deployment.yaml
   template:
     metadata:
       labels:
